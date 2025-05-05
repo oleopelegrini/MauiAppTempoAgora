@@ -5,28 +5,18 @@
 
     <ScrollView>
         <VerticalStackLayout
-            <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAppTempoAgora.MainPage">
-
-            <ScrollView>
-                <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
-                    <Button Text="Minha Localização" Clicked="Button_Clicked"/>
-                    <Label x:Name="lbl_coords"/>
+            <Button Text="Minha Localização" Clicked="Button_Clicked_Localizacao"/>
+            <Label x:Name="lbl_coords"/>
 
-                    <Entry x:Name="txt_cidade"/>
-                    <Button x:Name="Search" Text="Buscar Previsão" Clicked="Search_Clicked"/>
+            <Entry x:Name="txt_cidade"/>
+            <Button x:Name="Search" Text="Buscar Previsão"/>
 
-                    <Label x:Name="lbl_res"/>
+            <Label x:Name="lbl_res"/>
 
-                    <WebView x:Name="wv_mapa" HeightRequest="500"/>
-                </VerticalStackLayout>
-            </ScrollView>
-</ContentPage>
-</VerticalStackLayout>
+            <WebView x:Name="wv_mapa" HeightRequest="500"/>
+        </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

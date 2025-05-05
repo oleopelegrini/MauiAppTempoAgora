@@ -73,7 +73,7 @@ namespace MauiAppTempoAgora
 
                 Location? local = await Geolocation.Default.GetLocationAsync(request);
 
-                if(local != null)
+                if (local != null)
                 {
                     string local_disp = $"Latitude: {local.Latitude} \n" +
                                         $"Longitude: {local.Longitude}";
@@ -93,7 +93,7 @@ namespace MauiAppTempoAgora
             {
                 await DisplayAlert("Erro: Dispositivo não Suporta", fnsEx.Message, "OK");
             }
-            catch (FeatureNotEnableException fneEx)
+            catch (FeatureNotEnabledException fneEx)
             {
                 await DisplayAlert("Erro: Localização desabilitada", fneEx.Message, "OK");
             }
@@ -101,19 +101,20 @@ namespace MauiAppTempoAgora
             {
                 await DisplayAlert("Erro: Permissão da localização", pEx.Message, "OK");
             }
-            catch (FeatureNotSupportedException ex)
+            catch (Exception ex)
             {
                 await DisplayAlert("Erro", ex.Message, "OK");
             }
+        }
 
             private async void GetCidade(double lat, double lon)
         {
             try
             {
                 IEnumerable<Placemark> places = await Geocoding.Default.GetPlacemarksAsync(
-                    lat, lon)
+                    lat, lon);
 
-                    PlaceMark? Place = places.FirstOrDefault();
+                    Placemark? place = places.FirstOrDefault();
 
                     if (place != null)
                 {
@@ -121,11 +122,8 @@ namespace MauiAppTempoAgora
                 } 
             } catch(Exception ex)
             {
-                await DisplayAlert("Erro: Obtenção do nome da Cidade".ex.Message. "OK");
+                await DisplayAlert("Erro: Obtenção do nome da Cidade", ex.Message, "OK");
             }
         }
         }
-
-    }
-
 }

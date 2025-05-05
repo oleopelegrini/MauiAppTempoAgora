@@ -12,10 +12,11 @@ namespace MauiAppTempoAgora.Models
         public double? lat { get; set; }
         public double? tempo_min { get; set; }
         public double? tempo_max { get; set; }
-        public double? visibility { get; set; }
+        public int? visibility { get; set; }
         public double? speed { get; set; }
-        public double? main { get; set; }
-        public double? description { get; set; }
-        public double? sunrise { get; set; }
+        public string? main { get; set; }
+        public string? description { get; set; }
+        public string? sunrise { get; set; }
+        public string? sunset { get; set; }
     }
 }
